@@ -11,3 +11,5 @@ gem "selenium-webdriver"
 gem "capybara"
 gem "thin"
 gem 'simplecov'
+gem "pg"
+gem "rake"
