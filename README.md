@@ -4,4 +4,4 @@
 
 ### Object entity map:
 
-![entity-map](docs/entitys.svg)
+![entity-map](docs/entities.svg)
