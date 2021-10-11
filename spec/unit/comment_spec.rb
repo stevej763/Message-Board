@@ -1,16 +1,29 @@
 require 'domain/comment'
 
 describe Comment do
-  let(:subject) { described_class.new("This is a comment") }
+  let(:subject) { described_class.new("This is a comment", "123", "123") }
   describe '#id' do
     it 'has a random ID string of length 10' do
       expect(subject.id.length).to eq 10
       expect(subject.id.class).to eq String
     end
   end
-  describe '#comment' do 
+
+  describe '#post_id' do
+    it 'is linked to a post by a post ID' do
+      expect(subject.user_id).to eq "123"
+    end
+  end
+
+  describe '#user_id' do
+    it 'is linked to a user by a user ID' do
+      expect(subject.post_id).to eq "123"
+    end
+  end
+
+  describe '#content' do 
     it 'has a comment string' do
-      expect(subject.comment).to eq "This is a comment"
+      expect(subject.content).to eq "This is a comment"
     end
   end
 

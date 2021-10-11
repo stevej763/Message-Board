@@ -10,9 +10,22 @@
     <h1>The Message Board</h1>
     <div id="posts">
       <% @posts.each do |post| %>
-        <div id="post">
-        <h3><%= post.title %></h3>
-        <p><%= post.content %></p>
+        <div class="post" id="<%= post.id %>">
+        <h3 id="post-title"><%= post.title %></h3>
+        <p id="post-content"><%= post.content %></p>
+        <span id="post-likes">likes: <%= post.likes %></span>
+        <span id="post-dislikes">dislikes: <%= post.dislikes %></span>
+        <div id="post-comments">
+          <% @comments.each do |comment| %>
+              <% if comment.post_id == post.id %>
+                <div class="comment" id="<%= comment.id %>">
+                  <p id="post-comment"> <%= comment.content %></p>
+                  <span id="comment-likes">comment likes: <%= comment.likes %></span>
+                  <span id="comment-dislikes">comment dislikes: <%= comment.dislikes %></span>
+                </div>
+              <%end%>
+          <% end %>
+        </div>
         </div>
       <% end %>
     </div>
