@@ -1,0 +1,67 @@
+.page-title {
+  margin: auto;
+  width: 60%;
+  margin-bottom: 10px;
+  margin-top: 40px;
+  text-decoration: underline;
+}
+
+.posts {
+  border-radius: 10px;
+  margin: auto;
+  width: 60%;
+  border: 1px solid;
+  padding: 10px;
+  background-color: azure;
+  padding-top: 10px;
+  padding-bottom: 25px;
+}
+
+.post-title {
+  font-size: 1.5rem;
+}
+
+.ratings {
+  display: inline-flex;
+  margin-left: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  background-color: peachpuff;
+  border-radius: 5px;
+}
+
+.rating {
+  font-size: 0.75rem;
+}
+
+.post {
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  padding: 5px 20px;
+  background-color: white;
+  padding-bottom: 25px;
+  border-radius: 10px;
+}
+
+.comments {
+  background-color: whitesmoke;
+  border-radius: 5px;
+  margin: 10px 0px;
+  padding: 5px 0px 5px 5px;
+}
+
+.comment {
+  margin-bottom: 5px;
+  margin-left: 3px;
+  margin-right: 20%;
+  padding: 5px;
+  border-bottom: 1px dotted gray;
+}
+
+.comment-text {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}

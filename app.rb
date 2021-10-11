@@ -2,7 +2,6 @@ require 'sinatra/base'
 require './lib/domain/post'
 require './lib/domain/comment'
 
-
 class MessageBoardApp < Sinatra::Base
   get '/' do
     @posts = [
