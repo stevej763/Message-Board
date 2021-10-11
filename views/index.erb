@@ -8,5 +8,13 @@
   </head>
   <body>
     <h1>The Message Board</h1>
+    <div id="posts">
+      <% @posts.each do |post| %>
+        <div id="post">
+        <h3><%= post.title %></h3>
+        <p><%= post.content %></p>
+        </div>
+      <% end %>
+    </div>
   </body>
 </html>

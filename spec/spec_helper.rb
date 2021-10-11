@@ -10,7 +10,6 @@ Capybara.app = MessageBoardApp
 Capybara.server = :webrick
 Capybara.default_driver = :selenium_chrome
 
-
 RSpec.configure do |config|
 
   config.expect_with :rspec do |expectations|

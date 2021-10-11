@@ -8,6 +8,9 @@
 # https://github.com/makersacademy/scaffolint
 #
 # Configure Rubocop to use the config file in the Scaffolint GitHub repo
+AllCops:
+  Exclude:
+    - "Rakefile"
 
 inherit_from:
   - https://raw.githubusercontent.com/makersacademy/scaffolint/v2.2.0/.rubocop.yml

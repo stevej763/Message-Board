@@ -48,5 +48,4 @@ task :seed_db do
   connection.exec ("INSERT INTO comments VALUES (19, 55555555, 2, 'This is the third comment on post 5');")
   connection.exec ("INSERT INTO comments VALUES (20, 55555555, 3, 'This is the fourth comment on post 5');")
 
-
 end

@@ -1,7 +1,7 @@
 require 'domain/comment'
 
 describe Comment do
-  let(:subject) {described_class.new("This is a comment")}
+  let(:subject) { described_class.new("This is a comment") }
   describe '#id' do
     it 'has a random ID string of length 10' do
       expect(subject.id.length).to eq 10

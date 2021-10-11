@@ -1,7 +1,7 @@
 require 'domain/post'
 
 describe Post do
-  let(:subject) {described_class.new("My Title", "This is some content")}
+  let(:subject) { described_class.new("My Title", "This is some content") }
   describe '#id' do
     it '#has a random ID string of length 10' do
       expect(subject.id.length).to eq 10
