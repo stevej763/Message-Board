@@ -11,4 +11,8 @@ class CommentRepository
       Comment.new(comment['content'], comment['post_id'].to_i, comment['user_id'].to_i, comment['likes'].to_i, comment['dislikes'].to_i, comment['id'].to_i)
     end
   end
+
+  def add_comment(comment)
+    result = GenericDAO.query("INSERT INTO comments VALUES (#{comment.id}, #{comment.post_id}, #{comment.user_id}, '#{comment.content}', #{comment.likes}, #{comment.dislikes});")
+  end
 end

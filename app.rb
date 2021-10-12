@@ -23,7 +23,11 @@ class MessageBoardApp < Sinatra::Base
 
   post '/new-post' do
     create_new_post(params)
-    puts params  
+    redirect('/')
+  end
+
+  post '/add-comment' do
+    add_comment(params)
     redirect('/')
   end
 
@@ -34,6 +38,13 @@ class MessageBoardApp < Sinatra::Base
     content = params['post-content']
     user_id = params['user-id']
     @message_board_orchestration.new_post(title, content, user_id)
+  end
+
+  def add_comment(params)
+    content = params['content']
+    post_id = params['post_id']
+    user_id = params['user_id']
+    @message_board_orchestration.add_comment(content, post_id, user_id)
   end
 
   run! if app_file == $0

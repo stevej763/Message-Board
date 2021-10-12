@@ -1,5 +1,6 @@
 require_relative '../domain/composite_post'
 require_relative '../domain/post'
+require_relative '../domain/comment'
 
 class MessageBoardOrchestration
 
@@ -19,5 +20,10 @@ class MessageBoardOrchestration
   def new_post(title, content, user_id)
     post = Post.new(title, user_id, content)
     @post_service.new_post(post)
+  end
+
+  def add_comment(content, post_id, user_id)
+    comment = Comment.new(content, post_id, user_id)
+    @comment_service.add_comment(comment)
   end
 end

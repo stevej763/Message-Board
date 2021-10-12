@@ -25,10 +25,11 @@ feature 'User can see posts' do
     expect(page).to have_selector('#post-dislikes', text: '0')
   end
 
-  scenario 'comments have likes and dislikes' do
-    visit('/')
-    expect(page).to have_selector('#post-comment', text: "This is a comment for feature testing!")
-    expect(page).to have_selector('#comment-likes', text: '23')
-    expect(page).to have_selector('#comment-dislikes', text: '67')
+  scenario 'with comments have likes and dislikes' do
+    create_new_post
+    add_comment_to_first_post_on_page
+    expect(page).to have_selector('#post-comment', text: @comment)
+    expect(page).to have_selector('#comment-likes', text: '0')
+    expect(page).to have_selector('#comment-dislikes', text: '0')
   end
 end

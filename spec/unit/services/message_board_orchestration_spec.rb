@@ -1,5 +1,6 @@
 require 'services/message_board_orchestration'
 require 'domain/post'
+require 'domain/comment'
 
 describe MessageBoardOrchestration do
   let(:post1) { double :post1, id: "1" }
@@ -28,6 +29,16 @@ describe MessageBoardOrchestration do
       user_id = "1"
       expect(post_service).to receive(:new_post).with(an_instance_of(Post))
       subject.new_post(title, content, user_id)
+    end
+  end
+
+  describe '#add_comment' do
+    it 'requests a new comment be posted to a post' do
+      content = "new comment"
+      post_id = "12345678"
+      user_id = "1"
+      expect(comment_service).to receive(:add_comment).with(an_instance_of(Comment))
+      subject.add_comment(content, post_id, user_id)
     end
   end
 

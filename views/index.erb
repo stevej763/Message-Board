@@ -43,10 +43,12 @@
                 </div>
               </div>
             <% end %>
-            <form>
+            <form id="comment-posting-form" action="/add-comment" method="post">
               <div>
-                <textarea class="comment-box" name="message" placeholder="comment..."></textarea>
+                <textarea class="comment-box" id="new-comment-textbox" name="content" placeholder="comment..."></textarea>
               </div>
+              <input type="hidden" id="user_id" name="user_id" value="<%= @user_id %>">
+              <input type="hidden" id="post_id" name="post_id" value="<%= parent.post.id %>">
               <input class="new-comment-button" type=submit value="Add Comment">
             </form>
           </div>

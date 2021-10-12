@@ -4,6 +4,7 @@ describe CommentRepository do
   let(:comment1) { Comment.new("comment1", 11111111, 456, 1, 1, 1) }
   let(:comment2) { Comment.new("comment2", 22222222, 456, 2, 2, 2) }
   let(:comment3) { Comment.new("comment3", 33333333, 456, 3, 3, 3) }
+  let(:fake_comment) { double :fake_comment, id: 1, post_id: 123, user_id: 1, content: "content", likes: 0, dislikes: 0}
   describe '#find_all_comments_for_post' do
     it 'finds all comments for a given post id' do
       dto = [
@@ -14,6 +15,13 @@ describe CommentRepository do
       expected = [comment1, comment2, comment3]
       expect(GenericDAO).to receive(:query).and_return(dto)
       expect(subject.find_all_comments_for_post(123)).to eq expected
+    end
+  end
+
+  describe '#add_comment' do
+    it 'adds a comment to the database' do
+      expect(GenericDAO).to receive(:query)
+      subject.add_comment(fake_comment)
     end
   end
 

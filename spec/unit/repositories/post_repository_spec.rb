@@ -22,7 +22,7 @@ describe PostRepository do
 
   describe '#add_post' do
     it 'adds a post to the database' do
-      expect(GenericDAO).to receive(:query).and_return("something")
+      expect(GenericDAO).to receive(:query)
       subject.add_post(fake_post)
     end
   end
