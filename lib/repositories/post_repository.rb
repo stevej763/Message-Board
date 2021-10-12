@@ -11,4 +11,8 @@ class PostRepository
       Post.new(post['title'], post['user_id'].to_i, post['content'], post['likes'].to_i, post['dislikes'].to_i, post['id'].to_i)
     end
   end
+
+  def add_post(post)
+    result = GenericDAO.query("INSERT INTO posts VALUES (#{post.id}, #{post.user_id}, '#{post.title}', '#{post.content}', #{post.likes}, #{post.dislikes});")
+  end
 end

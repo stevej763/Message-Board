@@ -4,8 +4,8 @@ describe Comment do
   let(:subject) { described_class.new("This is a comment", "123", "123") }
   describe '#id' do
     it 'has a random ID string of length 10' do
-      expect(subject.id.length).to eq 10
-      expect(subject.id.class).to eq String
+      expect(subject.id.digits.length).to eq 8
+      expect(subject.id.class).to eq Integer
     end
   end
 

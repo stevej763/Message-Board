@@ -1,4 +1,5 @@
 require 'services/message_board_orchestration'
+require 'domain/post'
 
 describe MessageBoardOrchestration do
   let(:post1) { double :post1, id: "1" }
@@ -17,6 +18,16 @@ describe MessageBoardOrchestration do
       composite_post1 = CompositePost.new(post1, post1_comments)
       composite_post2 = CompositePost.new(post2, post2_comments)
       expect(subject.all_posts_with_comments).to eq [composite_post1, composite_post2]
+    end
+  end
+
+  describe '#new_post' do
+    it 'requests a new post be created' do
+      title = "new title"
+      content = "content"
+      user_id = "1"
+      expect(post_service).to receive(:new_post).with(an_instance_of(Post))
+      subject.new_post(title, content, user_id)
     end
   end
 

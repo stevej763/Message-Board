@@ -16,13 +16,24 @@ class MessageBoardApp < Sinatra::Base
   end
 
   get '/' do
-    @composite_posts = @message_board_orchestration.all_posts_with_comments
+    @user_id = "1"
+    @composite_posts = @message_board_orchestration.all_posts_with_comments.reverse
     erb :index
   end
 
   post '/new-post' do
+    create_new_post(params)
     puts params  
     redirect('/')
+  end
+
+  private
+
+  def create_new_post(params)
+    title = params['title']
+    content = params['post-content']
+    user_id = params['user-id']
+    @message_board_orchestration.new_post(title, content, user_id)
   end
 
   run! if app_file == $0

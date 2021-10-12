@@ -10,14 +10,16 @@
   <body>
     <h1 class="page-title">The Message Board</h1>
 
-    <div class="new-post">
+    <div class="new-post" id="new-post">
       <div class="new-post-content">
       <h3 class="new-post-title" id="new-post-title">New post submission</h3>
         <form method="post" action="/new-post">
+            <input class="new-post-title-textbox" id="new-post-title-textbox" type="text" name="title" placeholder="title" required>
           <div>
-            <textarea class="post-textbox" name="post" placeholder="A brand new message to post..."></textarea>
+            <textarea class="post-textbox" id="new-post-textbox" name="post-content" placeholder="A brand new message to post..." required></textarea>
           </div>
-          <input class="new-post-button" type=submit value="Add Post">
+          <input type="hidden" id="user_id" name="user-id" value="<%= @user_id %>">
+          <input class="new-post-button" id="add-post" type=submit value="Add Post">
         </form>
       </div>
     </div>
@@ -45,7 +47,7 @@
               <div>
                 <textarea class="comment-box" name="message" placeholder="comment..."></textarea>
               </div>
-              <input type=submit value="Add Comment">
+              <input class="new-comment-button" type=submit value="Add Comment">
             </form>
           </div>
         </div>
