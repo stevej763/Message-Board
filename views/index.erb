@@ -9,6 +9,19 @@
   </head>
   <body>
     <h1 class="page-title">The Message Board</h1>
+
+    <div class="new-post">
+      <div class="new-post-content">
+      <h3 class="new-post-title" id="new-post-title">New post submission</h3>
+        <form method="post" action="/new-post">
+          <div>
+            <textarea class="post-textbox" name="post" placeholder="A brand new message to post..."></textarea>
+          </div>
+          <input class="new-post-button" type=submit value="Add Post">
+        </form>
+      </div>
+    </div>
+
     <div class="posts" id="posts">
       <% @composite_posts.each do |parent| %>
         <div class="post" id="<%= parent.post.id %>">
@@ -32,7 +45,7 @@
               <div>
                 <textarea class="comment-box" name="message" placeholder="comment..."></textarea>
               </div>
-              <input type=submit value="Add comment">
+              <input type=submit value="Add Comment">
             </form>
           </div>
         </div>

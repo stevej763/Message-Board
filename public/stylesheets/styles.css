@@ -17,6 +17,45 @@
   padding-bottom: 25px;
 }
 
+.new-post {
+  border-radius: 10px;
+  margin: auto;
+  margin-bottom: 20px;
+  width: 60%;
+  border: 1px solid;
+  padding: 10px;
+  background-color: azure;
+  padding-bottom: 25px;
+}
+
+.new-post-content {
+  padding-left: 10px;
+}
+
+.new-post-button {
+  background-color: mediumspringgreen;
+  border-radius: 10px;
+  box-shadow: white;
+  color: black;
+  margin-top: 5px;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.new-post-title {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 1.5rem;
+}
+
+.post-textbox {
+  width: 90%;
+  height: 100px;
+}
+
 .post-title {
   font-size: 1.5rem;
 }
