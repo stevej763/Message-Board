@@ -12,11 +12,15 @@ task :setup do
   connection = PG.connect :dbname => 'message_board';
   connection.exec('CREATE TABLE posts (id SERIAL PRIMARY KEY, user_id INT, title VARCHAR(100), content VARCHAR, likes INT, dislikes INT);')
   connection.exec('CREATE TABLE comments (id SERIAL PRIMARY KEY, post_id INT, user_id INT, comment VARCHAR);')
+  connection.exec('CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(100), email VARCHAR(100), password VARCHAR(100));')
 end
 
 task :seed_db do
   connection = PG.connect :dbname => 'message_board';
-  connection.exec ('TRUNCATE TABLE posts;')
+
+  connection.exec ("INSERT INTO users VALUES (1, 'Steve', 'steve@fakemail.com', 'password123');")
+
+
   connection.exec ("INSERT INTO posts VALUES (11111111, 123, 'Post 1', 'This is some content for post 1', 3, 0);")
   connection.exec ("INSERT INTO posts VALUES (22222222, 123, 'Post 2', 'This is some content for post 2', 3, 0);")
   connection.exec ("INSERT INTO posts VALUES (33333333, 123, 'Post 3', 'This is some content for post 3', 3, 0);")

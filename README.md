@@ -2,6 +2,10 @@
 
 ## A simple CRUD messageboard app
 
-### Object entity map:
+### Object Entity Mapping:
 
 ![entity-map](docs/entities.svg)
+
+### Posts Class Diagram:
+
+![class-diagram](docs/posts_class_diagram.svg)
