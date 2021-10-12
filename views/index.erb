@@ -10,25 +10,23 @@
   <body>
     <h1 class="page-title">The Message Board</h1>
     <div class="posts" id="posts">
-      <% @posts.each do |post| %>
-        <div class="post" id="<%= post.id %>">
-          <h3 class="post-title" id="post-title"><%= post.title %></h3>
-          <p id="post-content"><%= post.content %></p>
+      <% @composite_posts.each do |parent| %>
+        <div class="post" id="<%= parent.post.id %>">
+          <h3 class="post-title" id="post-title"><%= parent.post.title %></h3>
+          <p id="post-content"><%= parent.post.content %></p>
           <div class="ratings">
-            <span class="rating" id="post-likes">&#128077;<%= post.likes %></span>
-            <span class="rating" id="post-dislikes">&#128078;<%= post.dislikes %></span>
+            <span class="rating" id="post-likes">&#128077;<%= parent.post.likes %></span>
+            <span class="rating" id="post-dislikes">&#128078;<%= parent.post.dislikes %></span>
           </div>
           <div class="comments" id="post-comments">
-            <% @comments.each do |comment| %>
-                <% if comment.post_id == post.id %>
-                  <div class="comment" id="<%= comment.id %>">
-                    <p class="comment-text" id="post-comment"> <%= comment.content %></p>
-                    <div class="ratings">
-                      <span class="rating" id="comment-likes">&#128077;<%= comment.likes %></span>
-                      <span class="rating" id="comment-dislikes">&#128078;<%= comment.dislikes %></span>
-                    </div>
-                  </div>
-                <%end%>
+            <% parent.comments.each do |comment| %>
+              <div class="comment" id="<%= comment.id %>">
+                <p class="comment-text" id="post-comment"> <%= comment.content %></p>
+                <div class="ratings">
+                  <span class="rating" id="comment-likes">&#128077;<%= comment.likes %></span>
+                  <span class="rating" id="comment-dislikes">&#128078;<%= comment.dislikes %></span>
+                </div>
+              </div>
             <% end %>
             <form>
               <div>
