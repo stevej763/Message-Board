@@ -4,6 +4,12 @@ require './lib/domain/comment'
 require './lib/domain/composite_post'
 
 class MessageBoardApp < Sinatra::Base
+
+  def initialize(app = nil, post_service = PostService.new(PostRepository.new))
+    super(app)
+    @post_service = post_service
+  end
+
   get '/' do
     @posts = [
       Post.new("Post 1", 123, "This is some content", 999, 111),
@@ -20,13 +26,8 @@ class MessageBoardApp < Sinatra::Base
       Comment.new("This is the first comment on post 4", @posts[3].id, 456)
     ]
 
-    @composite_posts = [
-      CompositePost.new(@posts[0], [@comments[0], @comments[1]]),
-      CompositePost.new(@posts[1], [@comments[2]]),
-      CompositePost.new(@posts[2], [@comments[3]]),
-      CompositePost.new(@posts[3], [@comments[4]]),
-      CompositePost.new(@posts[4], [])
-    ]
+    @composite_posts = @post_service.all_posts.map { |post| CompositePost.new(post, []) }
+
     erb :index
   end
 
