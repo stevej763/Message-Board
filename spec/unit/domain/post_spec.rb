@@ -26,12 +26,6 @@ describe Post do
     end
   end
 
-  describe '#comments' do
-    it 'has no comments by default' do 
-      expect(subject.comments).to eq []
-    end
-  end
-
   describe '#likes' do
     it 'has 0 likes by default' do 
       expect(subject.likes).to eq 0
